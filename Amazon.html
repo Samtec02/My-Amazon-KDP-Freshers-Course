@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Amazon KDP Mastery Bundle</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --gold: #C9982A;
+    --gold-light: #F5D98A;
+    --gold-pale: #FBF3DC;
+    --dark: #0D0D0B;
+    --dark-2: #1A1A15;
+    --dark-3: #252520;
+    --cream: #FAF7F0;
+    --cream-2: #F0EAD6;
+    --green: #1A6B4A;
+    --green-light: #E8F5EE;
+    --text: #1C1C18;
+    --muted: #6B6B60;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--dark);
+    color: var(--cream);
+    overflow-x: hidden;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    background: var(--dark);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 5rem 1.5rem 4rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 70% 50% at 50% 0%, rgba(201,152,42,0.18) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 30% at 20% 80%, rgba(201,152,42,0.08) 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+  .badge {
+    display: inline-block;
+    background: rgba(201,152,42,0.15);
+    border: 1px solid rgba(201,152,42,0.4);
+    color: var(--gold-light);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 6px 18px;
+    border-radius: 100px;
+    margin-bottom: 2rem;
+    animation: fadeDown 0.7s ease both;
+  }
+
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.4rem, 6vw, 5rem);
+    font-weight: 900;
+    line-height: 1.1;
+    color: var(--cream);
+    max-width: 820px;
+    animation: fadeDown 0.8s 0.1s ease both;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero h1 span {
+    color: var(--gold);
+    display: block;
+  }
+
+  .hero p.sub {
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    color: rgba(250,247,240,0.65);
+    max-width: 560px;
+    line-height: 1.75;
+    animation: fadeDown 0.8s 0.2s ease both;
+    margin-bottom: 2.5rem;
+  }
+
+  .hero-cta {
+    animation: fadeDown 0.8s 0.3s ease both;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .btn-primary {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--dark);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    padding: 1rem 2.5rem;
+    border-radius: 6px;
+    text-decoration: none;
+    letter-spacing: 0.02em;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 24px rgba(201,152,42,0.35);
+    cursor: pointer;
+    border: none;
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 32px rgba(201,152,42,0.5);
+  }
+
+  .hero-note {
+    font-size: 12px;
+    color: rgba(250,247,240,0.4);
+    letter-spacing: 0.03em;
+  }
+
+  /* ── DIVIDER ── */
+  .divider {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0 1.5rem;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .divider-line { flex: 1; height: 1px; background: rgba(201,152,42,0.2); }
+  .divider-icon { color: var(--gold); font-size: 1.2rem; }
+
+  /* ── PROBLEM SECTION ── */
+  .section { padding: 5rem 1.5rem; max-width: 860px; margin: 0 auto; }
+
+  .section-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1rem;
+  }
+
+  .section h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    font-weight: 700;
+    color: var(--cream);
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+  }
+
+  .section p {
+    font-size: 1.05rem;
+    line-height: 1.85;
+    color: rgba(250,247,240,0.7);
+    margin-bottom: 1rem;
+  }
+
+  /* ── PAIN POINTS ── */
+  .pain-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+
+  .pain-card {
+    background: var(--dark-2);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 10px;
+    padding: 1.25rem 1.25rem 1.25rem 1rem;
+    display: flex;
+    gap: 0.75rem;
+    align-items: flex-start;
+  }
+
+  .pain-icon { font-size: 1.3rem; margin-top: 2px; flex-shrink: 0; }
+
+  .pain-card p {
+    font-size: 0.9rem;
+    color: rgba(250,247,240,0.6);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  /* ── BUNDLE / OFFERS ── */
+  .bundle-section {
+    background: var(--dark-2);
+    padding: 5rem 1.5rem;
+  }
+
+  .bundle-inner { max-width: 860px; margin: 0 auto; }
+
+  .bundle-header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .bundle-header h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    font-weight: 900;
+    color: var(--cream);
+    line-height: 1.2;
+    margin-bottom: 0.75rem;
+  }
+
+  .bundle-header p {
+    color: rgba(250,247,240,0.6);
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+
+  .offers-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1rem;
+  }
+
+  .offer-card {
+    background: var(--dark-3);
+    border: 1px solid rgba(201,152,42,0.2);
+    border-radius: 14px;
+    padding: 1.5rem;
+    position: relative;
+    transition: border-color 0.25s, transform 0.25s;
+  }
+
+  .offer-card:hover {
+    border-color: rgba(201,152,42,0.5);
+    transform: translateY(-3px);
+  }
+
+  .offer-num {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+  }
+
+  .offer-emoji {
+    font-size: 2rem;
+    margin-bottom: 0.75rem;
+    display: block;
+  }
+
+  .offer-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--cream);
+    margin-bottom: 0.6rem;
+    line-height: 1.3;
+  }
+
+  .offer-card p {
+    font-size: 0.88rem;
+    color: rgba(250,247,240,0.55);
+    line-height: 1.7;
+    margin: 0;
+  }
+
+  .offer-value {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(201,152,42,0.15);
+    font-size: 12px;
+    color: var(--gold);
+    font-weight: 600;
+  }
+
+  /* ── BONUS BANNER ── */
+  .bonus-banner {
+    background: linear-gradient(135deg, #1A3A2A 0%, #0F2318 100%);
+    border: 1px solid rgba(26,107,74,0.5);
+    border-radius: 14px;
+    padding: 2rem 2rem;
+    margin-top: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+  }
+
+  .bonus-tag {
+    background: #1A6B4A;
+    color: #C6EDD8;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 5px 14px;
+    border-radius: 100px;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .bonus-text h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    color: #E8F5EE;
+    margin-bottom: 0.3rem;
+  }
+
+  .bonus-text p {
+    font-size: 0.88rem;
+    color: rgba(200,235,215,0.65);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  /* ── PRICING ── */
+  .pricing-section { padding: 5rem 1.5rem; text-align: center; }
+
+  .price-card {
+    background: var(--dark-2);
+    border: 1px solid rgba(201,152,42,0.35);
+    border-radius: 20px;
+    padding: 3rem 2rem;
+    max-width: 500px;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .price-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  }
+
+  .price-card .section-label { margin-bottom: 0.5rem; }
+
+  .price-card h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: 900;
+    color: var(--cream);
+    margin-bottom: 2rem;
+  }
+
+  .price-old {
+    font-size: 1.1rem;
+    color: rgba(250,247,240,0.35);
+    text-decoration: line-through;
+    margin-bottom: 0.3rem;
+  }
+
+  .price-new {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem;
+    font-weight: 900;
+    color: var(--gold);
+    line-height: 1;
+    margin-bottom: 0.5rem;
+  }
+
+  .price-note {
+    font-size: 0.85rem;
+    color: rgba(250,247,240,0.45);
+    margin-bottom: 2rem;
+  }
+
+  .price-checklist {
+    list-style: none;
+    text-align: left;
+    margin-bottom: 2rem;
+  }
+
+  .price-checklist li {
+    font-size: 0.92rem;
+    color: rgba(250,247,240,0.75);
+    padding: 0.5rem 0;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .price-checklist li:last-child { border-bottom: none; }
+
+  .check { color: #4ade80; font-size: 1rem; flex-shrink: 0; }
+
+  .guarantee {
+    margin-top: 1.5rem;
+    font-size: 0.82rem;
+    color: rgba(250,247,240,0.35);
+    line-height: 1.6;
+  }
+
+  /* ── URGENCY ── */
+  .urgency {
+    background: rgba(201,152,42,0.08);
+    border: 1px solid rgba(201,152,42,0.25);
+    border-radius: 10px;
+    padding: 1rem 1.25rem;
+    max-width: 500px;
+    margin: 1.5rem auto 0;
+    font-size: 0.88rem;
+    color: var(--gold-light);
+    line-height: 1.6;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    padding: 2rem 1.5rem;
+    text-align: center;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    font-size: 0.82rem;
+    color: rgba(250,247,240,0.3);
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeDown {
+    from { opacity: 0; transform: translateY(-18px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .fade-up { animation: fadeUp 0.7s ease both; }
+</style>
+</head>
+<body>
+
+<!-- ── HERO ── -->
+<section class="hero">
+  <div class="badge">🌍 Built Specifically for Africans — OTP Problems Solved</div>
+  <h1>
+    Stop Guessing. Start Publishing.
+    <span>Earn Your First $100 on Amazon KDP.</span>
+  </h1>
+  <p class="sub">A 4-day live bootcamp for African beginners — including the #1 problem nobody else teaches: how to successfully sign up on Amazon KDP and bypass OTP verification issues that block most Africans before they even start.</p>
+  <div class="hero-cta">
+    <a href="https://chat.whatsapp.com/FLMKU5wbkXk3q2xbhyGu1U?mode=gi_t" class="btn-primary" style="background:#25D366; box-shadow: 0 4px 24px rgba(37,211,102,0.35);">💬 Join the WhatsApp Group</a>
+    <p class="hero-note">No experience needed · Works in Ghana, Nigeria, Kenya & across Africa</p>
+  </div>
+</section>
+
+<!-- ── PROBLEM ── -->
+<section class="section">
+  <p class="section-label">Sound familiar?</p>
+  <h2>Why most Africans never even get started on Amazon KDP</h2>
+  <p>Amazon KDP is one of the biggest income opportunities available online today. But for most people in Africa, the journey ends before it ever begins — blocked by technical barriers that no one talks about, and a lack of guidance built for our reality.</p>
+
+  <!-- Africa-specific OTP callout -->
+  <div style="background: rgba(201,152,42,0.08); border: 1px solid rgba(201,152,42,0.3); border-radius: 12px; padding: 1.5rem 1.5rem; margin: 2rem 0; display: flex; gap: 1rem; align-items: flex-start;">
+    <span style="font-size: 2rem; flex-shrink:0;">🚫</span>
+    <div>
+      <p style="font-weight: 600; color: var(--gold-light); font-size: 1rem; margin-bottom: 0.4rem;">The #1 Barrier: Amazon OTP Verification</p>
+      <p style="font-size: 0.92rem; color: rgba(250,247,240,0.65); margin: 0; line-height: 1.75;">Thousands of Africans try to sign up on Amazon KDP every week — and get stuck at the phone verification step. OTP codes don't arrive, accounts get flagged, and most people give up thinking "Amazon isn't for us." <strong style="color: var(--cream);">This bundle covers exactly how to solve this — step by step.</strong></p>
+    </div>
+  </div>
+
+  <div class="pain-grid">
+    <div class="pain-card">
+      <span class="pain-icon">📵</span>
+      <p>OTP verification codes never arrive — leaving you locked out of your Amazon account</p>
+    </div>
+    <div class="pain-card">
+      <span class="pain-icon">😩</span>
+      <p>Overwhelmed by where to start — niche, content, design, or publishing?</p>
+    </div>
+    <div class="pain-card">
+      <span class="pain-icon">📉</span>
+      <p>Wasted hours watching YouTube tutorials that aren't made for African markets</p>
+    </div>
+    <div class="pain-card">
+      <span class="pain-icon">🎨</span>
+      <p>No design skills — worried your book will look amateurish next to the competition</p>
+    </div>
+    <div class="pain-card">
+      <span class="pain-icon">🔍</span>
+      <p>No idea how to find a niche that actually sells on Amazon right now</p>
+    </div>
+    <div class="pain-card">
+      <span class="pain-icon">🚪</span>
+      <p>Doing it alone with no mentor or community to guide you when you're stuck</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── BUNDLE ── -->
+<div class="bundle-section" id="bundle">
+  <div class="bundle-inner">
+    <div class="bundle-header">
+      <p class="section-label">The Complete Solution</p>
+      <h2>Everything you need — bundled into one irresistible offer</h2>
+      <p>This isn't a course you watch alone. It's a 4-day live bootcamp built for Africans — starting from account setup, all the way to publishing your first book and earning your first dollar.</p>
+    </div>
+
+    <div class="offers-grid">
+
+      <div class="offer-card" style="border-color: rgba(201,152,42,0.5); grid-column: 1 / -1;">
+        <span class="offer-num" style="color: var(--gold-light);">🌍 Africa-Exclusive</span>
+        <span class="offer-emoji">📵</span>
+        <h3>Amazon Account Setup + OTP Fix Tutorial</h3>
+        <p>The problem nobody else addresses. This module walks you through creating your Amazon KDP account successfully from any African country — Ghana, Nigeria, Kenya, and more — including how to resolve the OTP phone verification issue that stops most people dead in their tracks. You will not find this anywhere else.</p>
+      </div>
+
+      <div class="offer-card" style="border-color: rgba(201,152,42,0.45);">
+        <span class="offer-num">🔥 Core Training</span>
+        <span class="offer-emoji">📅</span>
+        <h3>4-Day Live Bootcamp</h3>
+        <p>Over 4 intensive days, you'll be taught everything inside the KDP Mastery curriculum — live, interactively, with real-time Q&A. No ebook handed over; instead you get something far better: direct teaching, hand-holding, and accountability from day one to your first published book.</p>
+        <div style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid rgba(201,152,42,0.15);">
+          <p style="font-size: 0.82rem; color: rgba(250,247,240,0.45); margin:0; line-height:1.7;">📅 <strong style="color:rgba(250,247,240,0.65);">Day 1</strong> — KDP Overview &amp; Account Setup &nbsp;·&nbsp; 📅 <strong style="color:rgba(250,247,240,0.65);">Day 2</strong> — Niche Research &amp; Book Creation &nbsp;·&nbsp; 📅 <strong style="color:rgba(250,247,240,0.65);">Day 3</strong> — Cover Design &amp; Formatting &nbsp;·&nbsp; 📅 <strong style="color:rgba(250,247,240,0.65);">Day 4</strong> — Publishing &amp; Getting Your First Sales</p>
+        </div>
+      </div>
+
+      <div class="offer-card">
+        <span class="offer-num">Bonus 02</span>
+        <span class="offer-emoji">🎨</span>
+        <h3>Professional Book Cover Design</h3>
+        <p>A custom, eye-catching cover created for you. Readers judge books by their covers — yours will look like it belongs on a bestseller list.</p>
+      </div>
+
+      <div class="offer-card">
+        <span class="offer-num">Bonus 03</span>
+        <span class="offer-emoji">🖥️</span>
+        <h3>Canva Design Tutorials</h3>
+        <p>Learn to design your own covers, interiors, and promotional graphics using free Canva tools — a skill that saves you money on every future book.</p>
+      </div>
+
+      <div class="offer-card">
+        <span class="offer-num">Bonus 04</span>
+        <span class="offer-emoji">📄</span>
+        <h3>Book Formatting (Paperback & Hardcover)</h3>
+        <p>No more rejection errors from KDP. Get your interior perfectly formatted for both paperback and hardcover publishing — done right the first time.</p>
+      </div>
+
+      <div class="offer-card">
+        <span class="offer-num">Bonus 05</span>
+        <span class="offer-emoji">🎥</span>
+        <h3>Live Step-by-Step Publishing Tutorials</h3>
+        <p>Watch over my shoulder as I publish a book from scratch in real time. Every click, every setting, every decision — explained live with no steps skipped.</p>
+      </div>
+
+      <div class="offer-card">
+        <span class="offer-num">Bonus 06</span>
+        <span class="offer-emoji">🔍</span>
+        <h3>Niche Research & Selection Training</h3>
+        <p>Discover the exact method to find low-competition, high-demand niches on Amazon — so you publish books that people are already looking to buy.</p>
+      </div>
+
+    </div>
+
+    <!-- Mentorship bonus -->
+    <div class="bonus-banner">
+      <span class="bonus-tag">🏆 Flagship Bonus</span>
+      <div class="bonus-text">
+        <h4>1-Month Mentorship + Private Community Access</h4>
+        <p>Get direct access to ask questions, get feedback on your books, and stay accountable inside a private community of fellow KDP publishers. You won't be doing this alone.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── WHATSAPP CTA (no price) ── -->
+<section class="pricing-section" id="pricing">
+  <p class="section-label" style="margin-bottom:0.75rem;">Ready to change your story?</p>
+  <h2 style="font-family:'Playfair Display',serif; font-size:clamp(1.8rem,4vw,2.6rem); color:var(--cream); margin-bottom:1rem; line-height:1.2;">This bundle was built for you</h2>
+  <p style="color: rgba(250,247,240,0.6); font-size:1rem; max-width:520px; margin: 0 auto 2rem; line-height:1.75;">Whether you're in Ghana, Nigeria, Kenya, or anywhere else in Africa — this is the most complete KDP training built with your reality in mind. Join the WhatsApp group to learn more and get started.</p>
+
+  <div class="price-card">
+    <p class="section-label">What's inside</p>
+    <h2 style="font-size:1.6rem; margin-bottom:1.5rem;">Amazon KDP Mastery Bundle</h2>
+
+    <ul class="price-checklist">
+      <li><span class="check">✓</span> Amazon signup + OTP fix (Africa-exclusive)</li>
+      <li><span class="check">✓</span> 4-Day Live Bootcamp — full KDP curriculum taught live</li>
+      <li><span class="check">✓</span> Professional book cover design</li>
+      <li><span class="check">✓</span> Canva design tutorials</li>
+      <li><span class="check">✓</span> Formatting guide (paperback & hardcover)</li>
+      <li><span class="check">✓</span> Live publishing tutorials — step by step</li>
+      <li><span class="check">✓</span> Niche research & selection training</li>
+      <li><span class="check">✓</span> 1-month mentorship + community access</li>
+    </ul>
+
+    <!-- Button 2 — Middle (inside card) -->
+    <a href="https://chat.whatsapp.com/FLMKU5wbkXk3q2xbhyGu1U?mode=gi_t" class="btn-primary" style="width:100%; display:block; text-align:center; font-size:1.05rem; padding:1.1rem; background:#25D366; box-shadow: 0 4px 24px rgba(37,211,102,0.35);">💬 Join the WhatsApp Group</a>
+
+    <p class="guarantee" style="margin-top:1rem;">🔒 No pressure · Limited mentorship spots · Ask questions before you decide</p>
+  </div>
+
+  <div class="urgency">
+    ⏳ <strong>Mentorship spots are limited.</strong> Once the group fills, the mentorship offer closes. Join the WhatsApp group now to secure your place in the conversation.
+  </div>
+
+  <!-- Button 3 — Bottom -->
+  <a href="https://chat.whatsapp.com/FLMKU5wbkXk3q2xbhyGu1U?mode=gi_t" class="btn-primary" style="display:block; max-width:500px; margin: 2rem auto 0; text-align:center; font-size:1.05rem; padding:1.1rem; background:#25D366; box-shadow: 0 4px 24px rgba(37,211,102,0.35);">💬 Join the WhatsApp Group</a>
+</section>
+
+<footer>
+  <p>© 2025 Amazon KDP Mastery · All rights reserved</p>
+  <p style="margin-top:6px;">Questions? Reach out before purchasing.</p>
+</footer>
+
+</body>
+</html>
